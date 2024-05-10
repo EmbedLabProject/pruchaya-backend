@@ -71,8 +71,8 @@ export async function getTraffyData(){
             if (e.properties.state != 'เสร็จสิ้น'){
                 newIdDetail.push({ticket_id: e.properties.ticket_id, description: e.properties.description,
                     timestamp: e.properties.timestamp, photo_url: e.properties.photo_url, 
-                    address: e.properties.address, state: e.properties.state, lat: e.geometry.coordinates[0],
-                    long: e.geometry.coordinates[1]
+                    address: e.properties.address, state: e.properties.state, lat: e.geometry.coordinates[1],
+                    long: e.geometry.coordinates[0]
                 })
             }
         });;
