@@ -14,7 +14,6 @@ app.use(cors());
 
 // use routes
 app.use("/problems", ProblemRoute);
-// app.use("/gameresults", GameResultRoute);
 
 
 export default app;
