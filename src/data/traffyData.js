@@ -68,7 +68,7 @@ export async function getTraffyData(){
     const newIdDetail = [];
     for (let i = 0; i < Math.ceil(problemCount/1000); i++) {
         (await fetchTraffyPartial("",i * 1000)).forEach(e => {
-            if (e.properties.state != 'เสร็จสิ้น'){
+            if (e.properties.state != 'เสร็จสิ้น' && e.properties.description != 'ไม่แสดงรายละเอียด'){
                 newIdDetail.push({ticket_id: e.properties.ticket_id, description: e.properties.description,
                     timestamp: e.properties.timestamp, photo_url: e.properties.photo_url, 
                     address: e.properties.address, state: e.properties.state, lat: e.geometry.coordinates[1],
