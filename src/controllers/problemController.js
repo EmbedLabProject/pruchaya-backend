@@ -6,6 +6,7 @@ import * as problemData from "../data/problemData.js";
 
 export const getProblem = async (req, res) => {
     try {
+        // console.log(req);
         const result = await traffyData.getTraffyData();
         res.status(200).json(result);
     }

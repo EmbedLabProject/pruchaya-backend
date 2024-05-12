@@ -24,10 +24,32 @@ async function test3(){
     console.log(result);
 }
 
+async function test4(){
+  const result = await fetch(`http://localhost:3222/sensors/update`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({device_id: "69420", humidity: 100}),
+  }).then(r => (r.json()));
+  console.log(result);
+}
+
+async function test5(){
+  const result = await fetch(`http://localhost:3222/sensors/get`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({device_id: "69420"}),
+  }).then(r => (r.json()));
+  console.log(result);
+}
+
 
 async function main(){
-    await test2();
-    await test3();
+    await test4();
+    await test5();
 }
 
 main();

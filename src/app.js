@@ -2,6 +2,8 @@ import express from "express";
 import cors from "cors";
 
 import ProblemRoute from "./routes/problemRoute.js";
+import SensorRoute from "./routes/sensorRoute.js";
+
 
 const app = express();
 
@@ -14,6 +16,6 @@ app.use(cors());
 
 // use routes
 app.use("/problems", ProblemRoute);
-
+app.use("/sensors", SensorRoute);
 
 export default app;
