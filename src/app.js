@@ -3,6 +3,8 @@ import cors from "cors";
 
 import ProblemRoute from "./routes/problemRoute.js";
 import SensorRoute from "./routes/sensorRoute.js";
+import ChatbotRoute from "./routes/chatbotRoute.js";
+
 
 
 const app = express();
@@ -17,5 +19,7 @@ app.use(cors());
 // use routes
 app.use("/problems", ProblemRoute);
 app.use("/sensors", SensorRoute);
+app.use("/chatbot", ChatbotRoute);
+
 
 export default app;

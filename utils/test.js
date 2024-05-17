@@ -46,10 +46,20 @@ async function test5(){
   console.log(result);
 }
 
+async function test6(){
+  const result = await fetch(`http://localhost:3222/chatbot`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({prompt: "อัลกอริทึมแบบละโมบ"}),
+  }).then(r => (r.json()));
+  console.log(result);
+}
+
 
 async function main(){
-    await test4();
-    await test5();
+    await test6();
 }
 
 main();
