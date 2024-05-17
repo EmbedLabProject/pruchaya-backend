@@ -3,6 +3,7 @@ import * as sensorData from "../data/sensorData.js";
 
 export const getSensorData = async (req, res) => {
     try {
+        // console.log(req.body)
         const deviceId = req.body.device_id;
         const result = sensorData.getSensorData(deviceId);
         res.status(200).json(result);

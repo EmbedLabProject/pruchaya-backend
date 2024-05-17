@@ -1,3 +1,6 @@
+import fs from "fs"
+import FormData from "form-data"
+
 async function test(){
     const results = await fetch(`http://localhost:3222/problems`).then(r => (r.json()));
       console.log(results);
@@ -46,10 +49,25 @@ async function test5(){
   console.log(result);
 }
 
+async function test6(){
+  const formdata = new FormData();
+
+  formdata.append('organs', 'fruit');
+  formdata.append('images', fs.createReadStream("../images/apple.jpg"));
+
+  formdata.append('organs', 'leaf');
+  formdata.append('images', fs.createReadStream("../images/leaf.jpg"));
+
+  const result = await fetch(`http://localhost:3222/plant/get`, {
+    method: "POST",
+    body: formdata
+  });//.then(r => (r.json()));
+  console.log(result);
+}
+
 
 async function main(){
-    await test4();
-    await test5();
+  test6();
 }
 
 main();
