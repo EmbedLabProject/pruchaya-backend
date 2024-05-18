@@ -1,4 +1,6 @@
-import FormData from "form-data";
+import axios from 'axios';
+import FormData from 'form-data';
+import fs from 'fs'; // Import fs to create ReadStream
 
 export async function getSpecies(file) {
     
@@ -6,8 +8,8 @@ export async function getSpecies(file) {
     const apiKey = '2b10kVnMfoV1NWbG3rJWbp3M7'; // Replace with your actual API key
 
     let form = new FormData();
-    req.files.forEach(file => {
-      form.append('images', fs.createReadStream(file.path));
+    files.forEach(file => {
+      form.append('images', fs.createReadStream(file.path)); // Add each file to form data
     });
 
     const { status, data } = await axios.post(
@@ -22,7 +24,7 @@ export async function getSpecies(file) {
         const scientificName = data.results[0].species.scientificNameWithoutAuthor;
         console.log('scientificName: ',scientificName)
     } else {
-        res.status(404).send('No plant identification results found.');
+        throw new Error('No plant identification results found.');
     }
 
     // console.log('status', status); // should be: 200
