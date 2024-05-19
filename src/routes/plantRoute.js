@@ -4,7 +4,7 @@ import * as plantController from "../controllers/plantController.js";
 
 const router = express.Router();
 
-router.post("/get", plantController.getSpeices);
+router.post("/getSpecies", plantController.getSpeices);
 
 
 export default router;

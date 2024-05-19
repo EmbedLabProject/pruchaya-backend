@@ -10,11 +10,11 @@ export const getSpeices = async (req, res) => {
     catch (error){
         // Error handler
         console.error('Error:', error);
-        res.status(500).send('An error occurred while identifying the plant.');
-        // if (err.name === "ValidationError") {
-        //     res.status(400).json({ error: "Bad Request" });
-        // } else {
-        //     res.status(500).json({ error: "Internal server error" });
-        // }
+        // res.status(500).send('An error occurred while identifying the plant.');
+        if (error.name === "ValidationError") {
+            res.status(400).json({ error: "Bad Request" });
+        } else {
+            res.status(500).json({ error: "An error occurred while identifying the plant." });
+        }
     }
 }

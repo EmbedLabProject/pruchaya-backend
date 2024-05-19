@@ -2,6 +2,8 @@ import axios from 'axios';
 import FormData from 'form-data';
 import fs from 'fs'; // Import fs to create ReadStream
 
+let scientificName = ""
+
 export async function getSpecies(file) {
     
     const project = 'all'; // Change to a specific flora if needed
@@ -21,7 +23,7 @@ export async function getSpecies(file) {
       );
 
     if (status === 200 && data.results && data.results.length > 0) {
-        const scientificName = data.results[0].species.scientificNameWithoutAuthor;
+        scientificName = data.results[0].species.scientificNameWithoutAuthor;
         console.log('scientificName: ',scientificName)
     } else {
         throw new Error('No plant identification results found.');
