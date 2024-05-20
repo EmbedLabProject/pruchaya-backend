@@ -4,16 +4,21 @@ import fs from 'fs'; // Import fs to create ReadStream
 
 let scientificName = ""
 
-export async function getSpecies(form) {
+export async function getSpecies(imageFiles) {
     
     const project = 'all'; // Change to a specific flora if needed
     const apiKey = '2b10kVnMfoV1NWbG3rJWbp3M7'; // Replace with your actual API key
-
+    const formData = new FormData();
+    imageFiles.forEach((file) => {
+            if (file !== null) {
+                formData.append('images', file);
+            }
+        });
     const { status, data } = await axios.post(
         `https://my-api.plantnet.org/v2/identify/${project}?api-key=${apiKey}`,
-        form,
+        formData,
         {
-          headers: form.getHeaders()
+          headers: formData.getHeaders()
         }
       );
 
