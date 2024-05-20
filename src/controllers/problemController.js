@@ -61,11 +61,11 @@ export const getProbStatus = async (req, res) => {
         }
         else if (problemData.isSolved(id)){
             problemData.setSolved(id);
-            res.status(200).json({ticket_id: id, message: "solved"});
+            res.status(200).json({ticket_id: id, status: "solved"});
         }
         else {
             problemData.setOngoing(id);
-            res.status(200).json({ticket_id: id, message: "ongoing"});
+            res.status(200).json({ticket_id: id, status: "ongoing"});
         }
 
     }
