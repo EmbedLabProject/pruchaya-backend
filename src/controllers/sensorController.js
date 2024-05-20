@@ -24,6 +24,9 @@ export const updateSensorData = async (req, res) => {
             sensorData.updateSensorData(req.body);
             res.status(200).json({message: "success"});
         }
+        else {
+            res.status(400).json({ error: "Bad Request" });
+        }
 
     }
     catch (err){
