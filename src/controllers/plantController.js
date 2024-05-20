@@ -3,8 +3,8 @@ import * as plantData from "../data/plantData.js"
 export const getSpeices = async (req, res) => {
     try {
         console.log(req.body)
-        const file = req.body
-        const result = await plantData.getSpecies(file);
+        const form = req.body
+        const result = await plantData.getSpecies(form);
         res.status(200).json(result);
     }
     catch (error){
