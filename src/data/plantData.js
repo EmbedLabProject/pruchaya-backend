@@ -21,13 +21,19 @@ export async function getSpecies(imageFiles) {
     const project = 'all'; // Change to a specific flora if needed
     const apiKey = '2b10kVnMfoV1NWbG3rJWbp3M7'; // Replace with your actual API key
     // const formData = imageFiles["imageFile"]
-    console.log(imageFiles)
+    // console.log(imageFiles)
     const index = 0
     const formData = new FormData();
-    imageFiles["imageString"].forEach(base64String => {
-        console.log(base64String)
-        const file = base64toFile(base64String, index);
-        formData.append('images', file)
+    console.log(imageFiles)
+    imageFiles["imageFile"].forEach(base64String => {
+        // console.log(base64String)
+        if(base64String !== ''){
+            const file = base64toFile(base64String, index);
+            console.log(file)
+            // formData.append('images', fs.createReadStream(file))
+            formData.append('images', base64String)
+            console.log(fs.createReadStream(file))
+        }
     });
     // imageFiles["imageFile"].forEach((file) => {
     //     console.log(file);
