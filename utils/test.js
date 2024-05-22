@@ -30,7 +30,7 @@ async function test4(){
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({device_id: "69420", humidity: 100}),
+      body: JSON.stringify({device_id: "69420",light:100,  humidity: 100, vibration: 100 }),
   }).then(r => (r.json()));
   console.log(result);
 }
@@ -59,7 +59,11 @@ async function test6(){
 
 
 async function main(){
-    await test6();
+    await test4();
+    await test4();
+    await test5();
+
+    
 }
 
 main();

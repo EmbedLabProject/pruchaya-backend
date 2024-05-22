@@ -31,6 +31,7 @@ export const updateSensorData = async (req, res) => {
     }
     catch (err){
         // Error handlers
+        console.log(err);
         if (err.name === "ValidationError") {
             res.status(400).json({ error: "Bad Request" });
           } else {
