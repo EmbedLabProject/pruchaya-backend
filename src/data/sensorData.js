@@ -1,4 +1,5 @@
 let allSensorData = [];
+allSensorData.push({device_id: "Test", data: [{light:53, humidity: 69, vibration: 12, time: 1716434158},{light:69, humidity: 53, vibration: 4, time: 1716434300}]})
 
 export function updateSensorData(newData){
     const device = allSensorData.find((i) => i.device_id == newData.device_id);
