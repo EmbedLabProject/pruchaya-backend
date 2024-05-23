@@ -30,7 +30,7 @@ async function test4(){
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({device_id: "69420",light:100,  humidity: 100, vibration: 100 }),
+      body: JSON.stringify({device_id: "Test",light:100,  humidity: 100, vibration: 100 }),
   }).then(r => (r.json()));
   console.log(result);
 }
@@ -41,9 +41,9 @@ async function test5(){
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({device_id: "69420"}),
+      body: JSON.stringify({device_id: "Test"}),
   }).then(r => (r.json()));
-  console.log(result);
+  console.log(result.data.length);
 }
 
 async function test6(){
@@ -59,9 +59,12 @@ async function test6(){
 
 
 async function main(){
-    await test4();
-    await test4();
+
+    for (let i=1 ; i<=10 ; i++){
+      await test4();
+    }
     await test5();
+    
 
 }
 
